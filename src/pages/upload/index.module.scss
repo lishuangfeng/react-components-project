@@ -1,0 +1,32 @@
+.fileupload_process_container {
+    height: 76px;
+    background: #eee;
+    border-radius: 16px;
+    display: flex;
+    position: absolute;
+    width: calc(100% - 72px);
+  
+    .fileupload_process_placeholder {
+      line-height: 30px;
+      display: inline-block;
+      margin: auto;
+  
+      .click_upload_file {
+        opacity: 0;
+        display: inline-block;
+        width: 28px, ;
+        position: absolute;
+      }
+  
+      .click_upload {
+        color: blue;
+        display: inline-block;
+        cursor: pointer;
+      }
+  
+      .click_text {
+        display: inline-block;
+      }
+    }
+  
+  }

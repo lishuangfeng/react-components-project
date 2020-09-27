@@ -1,0 +1,58 @@
+.fileupload_process {
+    width: 100%;
+  
+    .fileupload_progress_text {
+      position: absolute;
+      margin-left: 24px;
+      line-height: 30px;
+      display: inline-block;
+      height: 20px;
+      font-family: PingFangSC;
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 24px;
+      letter-spacing: normal;
+    }
+  
+    .fileupload_progress_bar {
+      width: 100%;
+      margin-top: 26px;
+      height: 24px;
+      padding-left: 36px;
+      padding-right: 88px;
+  
+      .progress_bar_container {
+        height: 100%;
+        width: calc(100% - 72px);
+        border-radius: 12px;
+        background-color: #eef5fc;
+  
+        .progress_bar {
+          background: #25c9a4;
+          border-radius: 12px;
+          float: left;
+          height: 100%;
+          text-align: center;
+          line-height: 150%;
+        }
+      }
+  
+      .progress_bar_container_fail {
+        height: 100%;
+        width: 100%;
+        border-radius: 12px;
+        background-color: #d5d5d5;
+      }
+  
+      .progress_icon {
+        display: inline-block;
+        position: absolute;
+        width: 36px;
+        height: 36px;
+        bottom: 20px;
+        right: 36px;
+      }
+    }
+  }
