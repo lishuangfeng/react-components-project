@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {UploadProgress} from "../../component"
+import {NavLink} from 'react-router-dom';
 import  styles from "./index.module.scss";
 
 const FileUpload = () => {
@@ -102,7 +103,9 @@ const FileUpload = () => {
   }, [setShowProgress]);
 
   return (
-    <div className={styles.fileupload_process_container} id="drop_area">
+    <div>
+      <NavLink to="/">目录页</NavLink>
+      <div className={styles.fileupload_process_container} id="drop_area">
       {showProgress ? (
         <UploadProgress
           fileName={file.name}
@@ -125,6 +128,7 @@ const FileUpload = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };

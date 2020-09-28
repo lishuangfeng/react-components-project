@@ -1,0 +1,129 @@
+.tableContainer {
+    width: 100%;
+    background-color: #e0fce1;
+    cursor: pointer;
+  
+    .table {
+      width: 100%;
+      border-spacing: 5px 10px;
+      height: 100%;
+      display: inline-block;
+  
+      thead {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 16px;
+        
+      }
+  
+      tbody {
+        width: 100%;
+        display: inline-block;
+        height: calc(100% - 54px);
+        overflow-y: auto;
+      }
+  
+      tbody::-webkit-scrollbar{
+        width:0;
+      }
+  
+      tr {
+        width: 100%;
+        display: block;
+      }
+  
+      th {
+        display: inline-block;
+        padding-top: 8px;
+      }
+  
+      td {
+        padding-top: 10px;
+        display: inline-block;
+        word-break: break-all;
+      }
+    }
+  
+    .column th {
+      text-align: left;
+      line-height: 22px;
+      object-fit: contain;
+      font-family: PingFangSC;
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.38;
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: inherit;
+      height: 38px;
+    }
+  
+    .column > th {
+      width: 11.17%;
+    }
+  
+    .column > th:first-child {
+      visibility: hidden;
+      width: 5.71%;
+    }
+  
+    .column > th:nth-child(2){
+      width: 37.85%;
+    }
+  
+    .column > th:nth-child(5){
+      width: 22.91%;
+    }
+  
+    .column > th:last-child {
+      text-align: right;
+    }
+  
+    .row {
+      line-height: 22px;
+      object-fit: contain;
+      font-family: PingFangSC;
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.38;
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: inherit;
+      height: 40px;
+      margin-bottom: 8px;
+  
+      td div{
+        color:#2663fc;
+        text-align: right;
+      }
+  
+    input[type=checkbox]{
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+        border-radius: 4px;
+        background-color: #fff;
+        border-color: #2663fc;
+        cursor: pointer;
+      }
+    }
+  }
+  .row > td {
+    width: 11.17%;
+  }
+  .row > td:first-child {
+    width: 5.71%;
+  }
+  
+  .row > td:nth-child(2) {
+    width: 37.85%;
+  }
+  
+  .row > td:nth-child(5) {
+    width: 22.91%;
+  }
+  
