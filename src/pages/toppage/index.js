@@ -8,11 +8,11 @@ const TopPage = () => {
 
   return (
     <div>
-       {t('home')}
+       {t('home-page')}
        <br/>
        <NavLink to="/tablepage">{t("table-page")}</NavLink><br/>
        <NavLink to="/upload">{t("upload-page")}</NavLink>
-       <button onClick={()=>i18n.changeLanguage(i18n.language==='en'?'zh':'en')}>{i18n.language==='en'?'zh':'en'}</button>
+       <button onClick={()=>i18n.changeLanguage(i18n.language==='en'?'zh':'en')}>{t('language')}</button>
     </div>
     
   );
