@@ -1,14 +1,20 @@
 import React from "react";
 import {NavLink} from 'react-router-dom';
+import { useTranslation} from 'react-i18next'
+
 
 const TopPage = () => {
+  let { t ,i18n} = useTranslation();
+
   return (
     <div>
-       目录
+       {t('home')}
        <br/>
-       <NavLink to="/tablepage">带checkbox的table</NavLink><br/>
-       <NavLink to="/upload">带进度条的上传组件</NavLink>
+       <NavLink to="/tablepage">{t("table-page")}</NavLink><br/>
+       <NavLink to="/upload">{t("upload-page")}</NavLink>
+       <button onClick={()=>i18n.changeLanguage(i18n.language==='en'?'zh':'en')}>{i18n.language==='en'?'zh':'en'}</button>
     </div>
+    
   );
 };
 

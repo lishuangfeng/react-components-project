@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router , Route} from 'react-router-dom';
 import { Upload, TablePage, TopPage } from './pages';
+import "./config/i18n";
 
 ReactDOM.render(
       <Router>
