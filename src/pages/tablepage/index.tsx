@@ -1,6 +1,9 @@
 import React from "react";
 import Table from "../../component/table";
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
+import store from "../../redux/reducer";
+// import {SET_LANGUAGE} from "../../consts";
 
 const data = [
   {
@@ -71,9 +74,13 @@ const TablePage = () => {
         </div>,
     },
   ];
+  let { t, i18n } = useTranslation();
+  let lan = store.getState().language;
+  console.log("lan---------", lan)
+  i18n.changeLanguage(lan === 'en' ? 'en' : 'zh');
   return (
     <div>
-      <NavLink to="/">目录页</NavLink>
+      <NavLink to="/">{t('home-page')}</NavLink>
       <Table
         data={data}
         columns={columns}

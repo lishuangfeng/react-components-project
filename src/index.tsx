@@ -1,17 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {BrowserRouter as Router , Route} from 'react-router-dom';
-import { Upload, TablePage, TopPage } from './pages';
-import "./config/i18n";
+import "react-app-polyfill/ie11";
+import "react-app-polyfill/stable";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import store from "./redux/reducer";
+import App from "./pages/App";
 
 ReactDOM.render(
-      <Router>
-      <div>
-          <Route exact path="/" component={TopPage} />
-          <Route exact path="/upload" component={Upload} />
-          <Route exact path="/tablepage" component={TablePage} />
-      </div>
-  </Router>,
-  document.getElementById('root')
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
 );
+
 

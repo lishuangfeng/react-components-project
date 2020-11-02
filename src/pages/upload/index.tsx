@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {UploadProgress} from "../../component"
-import {NavLink} from 'react-router-dom';
-import  styles from "./index.module.scss";
+import { UploadProgress } from "../../component"
+import { NavLink } from 'react-router-dom';
+import styles from "./index.module.scss";
 // const styles = require("./index.module.scss") 
 
 const FileUpload = () => {
@@ -41,7 +41,7 @@ const FileUpload = () => {
   //   [update]
   // );
   const handleProgressPercent = () => {
-      setProgress((percentComplete) => percentComplete < 95 ? percentComplete+5 : 100);
+    setProgress((percentComplete) => percentComplete < 95 ? percentComplete + 5 : 100);
   }
   const virtualWatch = () => {
     setInterval(handleProgressPercent, 1000);
@@ -63,7 +63,7 @@ const FileUpload = () => {
     //鼠标拖拽进入该区域
     uploadArea?.addEventListener(
       "dragenter",
-      function() {
+      function () {
         uploadArea.style.border = "1px solid #204fc5";
         uploadArea.style.backgroundColor = "#eef5fc";
       },
@@ -73,7 +73,7 @@ const FileUpload = () => {
     //鼠标拖拽离开该区域
     uploadArea?.addEventListener(
       "dragleave",
-      function() {
+      function () {
         uploadArea.style.border = "1px solid #eee";
         uploadArea.style.backgroundColor = "#eee";
       },
@@ -83,7 +83,7 @@ const FileUpload = () => {
     //只要鼠标拖拽悬停在该区域就会触发
     uploadArea?.addEventListener(
       "dragover",
-      function(e) {
+      function (e) {
         e.preventDefault();
         uploadArea.style.border = "1px solid #204fc5";
         uploadArea.style.backgroundColor = "#eef5fc";
@@ -92,7 +92,7 @@ const FileUpload = () => {
     );
 
     //鼠标拖拽释放
-    uploadArea?.addEventListener("drop", function(e) {
+    uploadArea?.addEventListener("drop", function (e) {
       e.preventDefault();
       uploadArea.style.border = "1px solid #eee";
       uploadArea.style.backgroundColor = "#eee";
@@ -106,30 +106,36 @@ const FileUpload = () => {
   return (
     <div>
       <NavLink to="/">目录页</NavLink>
-      <div className={styles.fileupload_process_container} id="drop_area">
-      {showProgress ? (
-        <UploadProgress
-          fileName={file.name}
-          progress={progress}
-          setShowProgress={setShowProgress}
-        />
-      ) : (
-        <div className={styles.fileupload_process_placeholder} id="click_area">
-          <input
-            type="file"
-            className={styles.click_upload_file}
-            onChange={e => handleUploadFile(e.target.files)}
-            id="clickFile"
+      <div
+        className={styles.fileupload_process_container}
+        id="drop_area"
+
+      >
+        {showProgress ? (
+          <UploadProgress
+            fileName={file.name}
+            progress={progress}
+            setShowProgress={setShowProgress}
           />
-          <div className={styles.click_upload}>
-            点击
+        ) : (
+            <div
+              className={styles.fileupload_process_placeholder}
+              id="click_area">
+              <input
+                type="file"
+                className={styles.click_upload_file}
+                onChange={e => handleUploadFile(e.target.files)}
+                id="clickFile"
+              />
+              <div className={styles.click_upload}>
+                点击
           </div>
-          <div className={styles.click_text}>
-            或拖拽上传文件
+              <div className={styles.click_text}>
+                或拖拽上传文件
           </div>
-        </div>
-      )}
-    </div>
+            </div>
+          )}
+      </div>
     </div>
   );
 };
