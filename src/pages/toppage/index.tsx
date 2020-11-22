@@ -22,7 +22,6 @@ const TopPage = () => {
       <NavLink to="/upload">{t("upload-page")}</NavLink>
       <button onClick={handleLanguage}>{t('language')}</button>
     </div>
-
   );
 };
 
