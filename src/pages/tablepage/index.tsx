@@ -2,8 +2,7 @@ import React from "react";
 import Table from "../../component/table";
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
-import store from "../../redux/reducer";
-// import {SET_LANGUAGE} from "../../consts";
+import { connect } from "react-redux";
 
 const data = [
   {
@@ -33,9 +32,14 @@ const data = [
   },
 ];
 
+const mapStateToProps = (state: any) => {
+  return {
+    language: state.topPageReducer.language
+  }
+};
 
-const TablePage = () => {
-
+const TablePage = (props: any) => {
+  const {language} = props;
   const deleteItem = (item: any) => {
     console.log("删除", item.key)
   };
@@ -75,9 +79,7 @@ const TablePage = () => {
     },
   ];
   let { t, i18n } = useTranslation();
-  let lan = store.getState().language;
-  console.log("lan---------", lan)
-  i18n.changeLanguage(lan === 'en' ? 'en' : 'zh');
+  i18n.changeLanguage(language === 'en' ? 'en' : 'zh');
   return (
     <div>
       <NavLink to="/">{t('home-page')}</NavLink>
@@ -90,6 +92,6 @@ const TablePage = () => {
   );
 };
 
-export default TablePage;
+export default connect(mapStateToProps)(TablePage);
 
 

@@ -1,17 +1,27 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import store from "../../redux/reducer";
-import {SET_LANGUAGE} from "@/consts";
+import { setLanguage } from "@/redux/actions";
+import { connect } from "react-redux";
 
+const mapStateToProps = (state: any) => {
+  return {
+    language: state.topPageReducer.language
+  }
+};
 
-const TopPage = () => {
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    setLanguage: (language: string) => dispatch(setLanguage(language))
+  }
+};
+
+const TopPage = (props: any) => {
   let { t, i18n } = useTranslation();
-  let lan = store.getState().language;
-
+  const {language, setLanguage} = props;
   const handleLanguage = () => {
-    i18n.changeLanguage(lan === 'en' ? 'zh' : 'en');
-    store.dispatch({ type: SET_LANGUAGE, payload: lan === 'en' ? 'zh' : 'en' })
+    i18n.changeLanguage(language === 'en' ? 'zh' : 'en');
+    setLanguage(language === 'en' ? 'zh' : 'en');
   }
 
   return (
@@ -22,8 +32,9 @@ const TopPage = () => {
       <NavLink to="/upload">{t("upload-page")}</NavLink>
       <button onClick={handleLanguage}>{t('language')}</button>
     </div>
+
   );
 };
 
-export default TopPage;
+export default connect(mapStateToProps, mapDispatchToProps)(TopPage)
 
