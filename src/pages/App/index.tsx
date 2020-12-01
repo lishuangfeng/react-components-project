@@ -7,6 +7,7 @@ export default function App(): ReactElement {
     return (
         <BrowserRouter>
       <div>
+      <i className="iconfont">&#xe60c;</i>
           <Route exact path="/" component={TopPage} />
           <Route exact path="/upload" component={Upload} />
           <Route exact path="/tablepage" component={TablePage} />

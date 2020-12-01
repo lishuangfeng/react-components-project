@@ -297,7 +297,7 @@ module.exports = function(webpackEnv) {
         }),
         ...(modules.webpackAliases || {}),
         //路径引用@
-        "@": paths.appSrc
+        "@": paths.appSrc,
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -463,7 +463,14 @@ module.exports = function(webpackEnv) {
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
                 'sass-loader'
-              ),
+              ).concat({
+                // 这行的意思是引入加载器 sass-resources-loader
+                loader: 'sass-resources-loader',
+                options: {
+                  // 这里是需要引入全局的资源文件，它可以是一个字符串或者是一个数组， 通常用数组去代替。
+                  resources: [path.resolve(__dirname, './src/common/style/common.scss')]
+                }
+              }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
               // Remove this when webpack adds a warning or an error for this.

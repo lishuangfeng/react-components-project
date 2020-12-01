@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import rootReducer from "./redux/reducer";
 import App from "./pages/App";
 import { createStore } from "redux";
+import "./common/style/common.scss"
 
 const root = document.getElementById("root");
 const store = createStore(

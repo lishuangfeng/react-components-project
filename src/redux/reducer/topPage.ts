@@ -10,6 +10,7 @@ const initialState: State = {
 
 const topPageReducer = (state: State = initialState, action: any): State => {
   switch (action.type) {
+    
     case SET_LANGUAGE:
       return {
         ...state,

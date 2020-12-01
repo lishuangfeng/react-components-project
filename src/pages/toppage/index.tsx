@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { setLanguage } from "@/redux/actions";
 import { connect } from "react-redux";
+import { Select } from "@/component";
 
 const mapStateToProps = (state: any) => {
   return {
@@ -31,6 +32,7 @@ const TopPage = (props: any) => {
       <NavLink to="/tablepage">{t("table-page")}</NavLink><br />
       <NavLink to="/upload">{t("upload-page")}</NavLink>
       <button onClick={handleLanguage}>{t('language')}</button>
+      <Select/>
     </div>
 
   );
